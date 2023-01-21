@@ -101,3 +101,17 @@ rl.question(`Please describe the task you'd like to perform: `, async (task) => 
     rl.close();
 });
 ```
+
+## Jan 20 2023
+
+App prompts user for api key then closes
+I need app to prompt user for API key, check it, then prompt user for query OR tell user API key is invalid
+
+## Jan 21 2023
+
+Here's the logic I think the app should follow. When the user calls for the program within his/her terminal:
+
+1. The program checks the config.json file for an api key
+2. If there is more than 0 characters in the apikey value, the program proceeds to prompt the user for their prompt. If there is nothing in the apikey value, the program prompts the user for their api key.
+3. If the user has to enter their apikey, the program then prompts the user for their prompt.
+4. If their apikey is invalid, then the program has them enter their apikey again.
