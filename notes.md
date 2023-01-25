@@ -113,5 +113,6 @@ Here's the logic I think the app should follow. When the user calls for the prog
 
 1. The program checks the config.json file for an api key
 2. If there is more than 0 characters in the apikey value, the program proceeds to prompt the user for their prompt. If there is nothing in the apikey value, the program prompts the user for their api key.
-3. If the user has to enter their apikey, the program then prompts the user for their prompt.
+3. If the user has to enter their apikey, the program records the apikey in config.json file
+4. Then prompts the user for their prompt.
 4. If their apikey is invalid, then the program has them enter their apikey again.
