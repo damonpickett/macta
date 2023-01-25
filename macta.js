@@ -14,67 +14,42 @@ const rl = readline.createInterface({
 try {
     // Try to read the config file
     apiKey = JSON.parse(fs.readFileSync('config.json')).apiKey;
-} catch (err) {
-    // If the file doesn't exist or is invalid, prompt the user for the API key
-    readline.question('Please enter your OpenAI API key: ', (key) => {
-        apiKey = key;
-        fs.writeFileSync('config.json', JSON.stringify({ apiKey }));
-        readline.close();
-    });
-}
-
-// Check if API key is a valid OpenAI API key by making an API call with it
-const checkApiKey = async (apiKey) => {
-    try {
-        const response = await axios.get('https://api.openai.com/v1/engines', {
-            headers: {
-                'Authorization': `Bearer ${apiKey}`
-            },
+    if(apiKey === undefined || apiKey.length === 0){
+        rl.question('Please enter your OpenAI API key: ', (key) => {
+            apiKey = key;
+            fs.writeFileSync('config.json', JSON.stringify({ apiKey }));
+            apiCall();
         });
-        return true;
-    } catch (err) {
-        if (err.response.status === 401) {
-            console.log('Invalid API key');
-            return false;
-        } else {
-            console.log(`An error occurred: ${err}`);
-            return false;
-        }
+    } else {
+        apiCall();
     }
-};
-
-if (!apiKey || !(checkApiKey(apiKey))) {
-    // If no key was found or the key is invalid, prompt the user to enter a new one
-    rl.question('Please enter your OpenAI API key: ', (key) => {
-        apiKey = key;
-        fs.writeFileSync('config.json', JSON.stringify({ apiKey }));
-        rl.close();
-    });
+} catch (err) {
+    console.log("config.json not found. Creating new config.json")
 }
 
 
-const configuration = new Configuration({
-    apiKey: apiKey,
-});
 
-const openai = new OpenAIApi(configuration);
+function apiCall() {
 
-const retryLimit = 5;
-let retryCount = 0;
+    const configuration = new Configuration({
+        apiKey: apiKey,
+    });
+    
+    const openai = new OpenAIApi(configuration);
+    
+    const retryLimit = 5;
 
+    let retryCount = 0;
 
-
-
-rl.question(`Please describe the task you'd like to perform: `, async (task) => {
+    rl.question(`Please describe the task you'd like to perform: `, async (task) => {
     while (retryCount <= retryLimit) {
         try {
-            // openai text completion function goes here
+            // openai text completion function
             const completion = await openai.createCompletion({
                 prompt: `How do I ${task} in MacOS terminal? Please provide instruction with an example.`,
                 temperature: 0.5,
                 model: "text-davinci-002",
                 max_tokens: 250,
-                temperature: 0.5
             });
 
             completionOutput = completion.data.choices.pop();
@@ -97,3 +72,4 @@ rl.question(`Please describe the task you'd like to perform: `, async (task) => 
     }
     rl.close();
 });
+}
