@@ -1,7 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 const readline = require ('readline');
 const fs = require('fs');
-const axios = require('axios');
+
 
 let apiKey;
 
@@ -11,20 +11,21 @@ const rl = readline.createInterface({
 });
 
 // Check for/read config file
+console.log(process.cwd());
 try {
     // Try to read the config file
-    apiKey = JSON.parse(fs.readFileSync('config.json')).apiKey;
+    apiKey = JSON.parse(fs.readFileSync('/Users/damonpickett/ai-development/macta/config.json')).apiKey;
     if(apiKey === undefined || apiKey.length === 0){
         rl.question('Please enter your OpenAI API key: ', (key) => {
             apiKey = key;
-            fs.writeFileSync('config.json', JSON.stringify({ apiKey }));
+            fs.writeFileSync('/Users/damonpickett/ai-development/macta/config.json ', JSON.stringify({ apiKey }));
             apiCall();
         });
     } else {
         apiCall();
     }
 } catch (err) {
-    console.log("config.json not found. Creating new config.json")
+    console.log("config.json not found")
 }
 
 
