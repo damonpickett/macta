@@ -1,6 +1,10 @@
 const { Configuration, OpenAIApi } = require("openai");
 const readline = require ('readline');
 const fs = require('fs');
+const path = require("path");
+
+const configFilePath = path.join(process.cwd(), "config.json");
+
 
 
 let apiKey;
@@ -11,22 +15,28 @@ const rl = readline.createInterface({
 });
 
 // Check for/read config file
-console.log(process.cwd());
+
 try {
     // Try to read the config file
-    apiKey = JSON.parse(fs.readFileSync('/Users/damonpickett/ai-development/macta/config.json')).apiKey;
-    if(apiKey === undefined || apiKey.length === 0){
-        rl.question('Please enter your OpenAI API key: ', (key) => {
-            apiKey = key;
-            fs.writeFileSync('/Users/damonpickett/ai-development/macta/config.json ', JSON.stringify({ apiKey }));
-            apiCall();
-        });
-    } else {
+    apiKey = JSON.parse(fs.readFileSync(configFilePath)).apiKey;
+    if (apiKey === undefined || apiKey.length === 0) {
+      rl.question('Please enter your OpenAI API key: ', (key) => {
+        apiKey = key;
+        fs.writeFileSync(configFilePath, JSON.stringify({ apiKey }));
         apiCall();
+      });
+    } else {
+      apiCall();
     }
-} catch (err) {
-    console.log("config.json not found")
-}
+  } catch (err) {
+    console.log('config.json not found, creating one now...');
+    fs.writeFileSync(configFilePath, JSON.stringify({ apiKey: '' }));
+    rl.question('Please enter your OpenAI API key: ', (key) => {
+      apiKey = key;
+      fs.writeFileSync(configFilePath, JSON.stringify({ apiKey }));
+      apiCall();
+    });
+  }
 
 
 
