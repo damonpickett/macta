@@ -2,10 +2,11 @@ const { Configuration, OpenAIApi } = require("openai");
 const readline = require ('readline');
 const fs = require('fs');
 const path = require("path");
+const crypto = require("crypto");
 
-const configFilePath = path.join(process.cwd(), "config.json");
+require('dotenv').config();
 
-
+const configFilePath = path.join(process.env.HOME, ".env");
 
 let apiKey;
 
@@ -14,31 +15,35 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-// Check for/read config file
+// Check for/read .env file
 
-try {
-    // Try to read the config file
-    apiKey = JSON.parse(fs.readFileSync(configFilePath)).apiKey;
-    if (apiKey === undefined || apiKey.length === 0) {
-      rl.question('Please enter your OpenAI API key: ', (key) => {
-        apiKey = key;
-        fs.writeFileSync(configFilePath, JSON.stringify({ apiKey }));
-        apiCall();
-      });
-    } else {
-      apiCall();
-    }
-  } catch (err) {
-    console.log('config.json not found, creating one now...');
-    fs.writeFileSync(configFilePath, JSON.stringify({ apiKey: '' }));
+if (!fs.existsSync(configFilePath)) {
+    console.log('.env file not found, creating one now...');
+    fs.writeFileSync(configFilePath, "OPENAI_API_KEY=");
     rl.question('Please enter your OpenAI API key: ', (key) => {
       apiKey = key;
-      fs.writeFileSync(configFilePath, JSON.stringify({ apiKey }));
+      const encryptedKey = encrypt(apiKey);
+      fs.writeFileSync(configFilePath, `OPENAI_API_KEY=${encryptedKey}`);
       apiCall();
     });
+  } else {
+    apiKey = decrypt(process.env.OPENAI_API_KEY);
+    apiCall();
   }
 
+function encrypt(text) {
+    const cipher = crypto.createCipher("aes-256-cbc", process.env.ENCRYPTION_KEY);
+    let encrypted = cipher.update(text, "utf8", "hex");
+    encrypted += cipher.final("hex");
+    return encrypted;
+}
 
+function decrypt(encryptedText) {
+    const decipher = crypto.createDecipher("aes-256-cbc", process.env.ENCRYPTION_KEY);
+    let decrypted = decipher.update(encryptedText, "hex", "utf8");
+    decrypted += decipher.final("utf8");
+    return decrypted;
+}
 
 function apiCall() {
 
@@ -77,7 +82,7 @@ function apiCall() {
                 continue;
             } else {
                 console.log(`An error occurred: ${err}`);
-                break;
+
             }
         }
     }
