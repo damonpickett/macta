@@ -29,7 +29,7 @@ try {
         apiCall();
       });
     } else {
-      apiCall();
+        apiCall();
     }
   } catch (err) {
     // .env file not found so create one and add api key
