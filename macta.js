@@ -3,9 +3,9 @@ const readline = require ('readline');
 const fs = require('fs');
 const path = require("path");
 
-require('dotenv').config();
+const configFilePath = path.join(process.cwd(), "config.json");
 
-const envPath = path.join(process.env.HOME, ".env");
+
 
 let apiKey;
 
@@ -15,30 +15,25 @@ const rl = readline.createInterface({
 });
 
 // Check for/read config file
-// If no config file, create one and...
-// prompt user for their api key
-// Make api function call
+
 try {
     // Try to read the config file
-    apiKey = fs.readFileSync(envPath).process.env.OPENAI_API_KEY;
-    if (process.env.OPENAI_API_KEY === undefined || process.env.OPENAI_API_KEY.length === 0) {
-      // Get the user to enter their api key and add it to the pre-existing .env file
+    apiKey = JSON.parse(fs.readFileSync(configFilePath)).apiKey;
+    if (apiKey === undefined || apiKey.length === 0) {
       rl.question('Please enter your OpenAI API key: ', (key) => {
         apiKey = key;
-        fs.writeFileSync(envPath, `OPENAI_API_KEY=${apiKey}`);
+        fs.writeFileSync(configFilePath, JSON.stringify({ apiKey }));
         apiCall();
       });
     } else {
-        apiCall();
+      apiCall();
     }
   } catch (err) {
-    // .env file not found so create one and add api key
-    console.log(err)
-    console.log('.env file not found, creating one now...');
-    fs.writeFileSync(envPath, `OPENAI_API_KEY=`);
+    console.log('config.json not found, creating one now...');
+    fs.writeFileSync(configFilePath, JSON.stringify({ apiKey: '' }));
     rl.question('Please enter your OpenAI API key: ', (key) => {
       apiKey = key;
-      fs.writeFileSync(envPath, `OPENAI_API_KEY=${apiKey}`);
+      fs.writeFileSync(configFilePath, JSON.stringify({ apiKey }));
       apiCall();
     });
   }
