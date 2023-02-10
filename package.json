@@ -17,6 +17,6 @@
     "os": "^0.1.2"
   },
   "bin": {
-    "macta": "./index"
+    "macta": "./index.js"
   }
 }
