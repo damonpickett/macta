@@ -1,10 +1,12 @@
 {
   "name": "macta",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A virtual assistant for providing MacOS terminal command prompts.",
-  "main": "macta.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "postinstall": "ln -s $(pwd)/node_modules/macta/index.js /usr/local/bin/macta"
   },
   "author": "Damon Pickett",
   "license": "ISC",
@@ -15,6 +17,6 @@
     "os": "^0.1.2"
   },
   "bin": {
-    "macta": "."
+    "macta": "./index"
   }
 }
