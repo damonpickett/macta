@@ -1,6 +1,6 @@
 {
   "name": "macta",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A virtual assistant for providing MacOS terminal command prompts.",
   "main": "./lib/index.js",
   "scripts": {
@@ -16,6 +16,6 @@
     "os": "^0.1.2"
   },
   "bin": {
-    "macta": "./index.js"
+    "macta": "./bin/index.js"
   }
 }
