@@ -2,4 +2,4 @@
 
 const library = require('../lib/index.js');
 
-library
+library.macta();
