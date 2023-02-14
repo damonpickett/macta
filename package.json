@@ -2,7 +2,7 @@
   "name": "macta",
   "version": "1.0.8",
   "description": "A virtual assistant for providing MacOS terminal command prompts.",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
