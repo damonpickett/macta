@@ -18,8 +18,6 @@ const rl = readline.createInterface({
 
 // Check for/read config file
 
-function macta() {
-
 try {
     // Try to read the config file
     apiKey = JSON.parse(fs.readFileSync(configFilePath)).apiKey;
@@ -88,6 +86,3 @@ function apiCall() {
     rl.close();
 });
 }
-}
-
-module.exports = macta();
