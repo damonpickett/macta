@@ -1,8 +1,9 @@
-const { Configuration, OpenAIApi } = require("openai");
+#!/usr/bin/env node
+const { Configuration, OpenAIApi } = require('openai');
 const readline = require ('readline');
 const fs = require('fs');
 const path = require("path");
-const os = require("os");
+const os = require('os');
 
 const configFilePath = path.join(process.cwd(), "config.json");
 
@@ -61,7 +62,7 @@ function apiCall() {
             const completion = await openai.createCompletion({
                 prompt: `How do I ${task} in MacOS terminal? Please provide instruction with an example.`,
                 temperature: 0.5,
-                model: "text-davinci-002",
+                model: "text-davinci-003",
                 max_tokens: 250,
             });
 
