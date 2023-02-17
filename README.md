@@ -16,9 +16,14 @@
 - [License](#license)
 
 ## Description
-MacTA is command-line application that utilizes the OpenAI API to generate instructions for performing tasks in the MacOS terminal. The application prompts the user to enter a task description, then uses the OpenAI text completion function to generate a set of instructions based on the provided task description. The generated instructions are printed to the console for the user to view. The application also includes functionality for reading and writing an API key to a local config file, and handles API request errors with retry attempts.
+MacTA is command-line application that utilizes the OpenAI API to generate instructions for performing tasks in the MacOS terminal. The purpose of this application is to generate clear and concise instructions without having to leave the terminal. This can be particularly helpful for individuals who are new to the terminal or unfamiliar with specific terminal commands.
 
-The purpose of this application is to assist users with performing tasks in the MacOS terminal by generating clear and concise instructions without having to leave the terminal. This can be particularly helpful for individuals who are new to the terminal or unfamiliar with specific terminal commands.
+After installation, upon the user's first attempt run MacTA, MacTA will prompt the user for their OpenAI API key. This will stored in a `config.json` file which will be saved in the MacTA directory within your global directory. The user will only have to enter their API key once.
+
+This program is free to use. However, if you would like to [buymeacoffee](https://www.buymeacoffee.com/damonpickett), feel free!
+
+[![Buy me a cofee](./assets/bmc-button300x84.png)](https://www.buymeacoffee.com/damonpickett)
+
 
 ## Tech Stack
 This project utilizes several technologies, including:
