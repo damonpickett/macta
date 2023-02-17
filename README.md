@@ -1,9 +1,10 @@
-# MACTA
-Macintosh Terminal Assistant.
+# MacTA
+*Macintosh Terminal Assistant*
 
 ## Table of Contents
-- [Project Title](#project-title)
+- [Project Title](#macta)
 - [Description](#description)
+- [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -13,16 +14,21 @@ Macintosh Terminal Assistant.
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Credits](#credits)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
-- [Appendix](#appendix)
-- [Formatting and Best Practices](#formatting-and-best-practices)
 
 ## Description
 MacTA is command-line application that utilizes the OpenAI API to generate instructions for performing tasks in the MacOS terminal. The application prompts the user to enter a task description, then uses the OpenAI text completion function to generate a set of instructions based on the provided task description. The generated instructions are printed to the console for the user to view. The application also includes functionality for reading and writing an API key to a local config file, and handles API request errors with retry attempts.
 
 The purpose of this application is to assist users with performing tasks in the MacOS terminal by generating clear and concise instructions without having to leave the terminal. This can be particularly helpful for individuals who are new to the terminal or unfamiliar with specific terminal commands.
+
+## Tech Stack
+This project utilizes several technologies, including:
+
+* **OpenAI API**: A cloud-based platform that allows users to build various artificial intelligence models, including natural language processing models that can generate text.
+* **readline**: A Node.js module that provides an interface for reading input from a user via the command line.
+* **fs**: A Node.js module that provides an interface for working with the file system.
+* **path**: A Node.js module that provides utilities for working with file and directory paths.
+
+In this project, the OpenAI API is used to generate text in response to user input. The readline module is used to read user input from the command line, while the fs module is used to read and write configuration data to a file. The path module is used to construct file paths for the configuration file.
 
 ## Installation
 1. Install Node.js on your system. You can download Node.js from the official website: [Node.js](https://nodejs.org/)
