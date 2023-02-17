@@ -20,6 +20,8 @@ MacTA is command-line application that utilizes the OpenAI API to generate instr
 
 After installation, upon the user's first attempt run MacTA, MacTA will prompt the user for their OpenAI API key. This will stored in a `config.json` file which will be saved in the MacTA directory within your global directory. The user will only have to enter their API key once.
 
+![MacTA Demo](./assets/macta_demo.gif)
+
 This program is free to use. However, if you would like to <a href="https://www.buymeacoffee.com/damonpickett" target="_blank">buy me a coffee</a>, feel free!
 
 <p align="center">
