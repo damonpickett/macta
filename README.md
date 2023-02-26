@@ -33,10 +33,10 @@ This program is free to use. However, if you would like to <a href="https://www.
 ## Tech Stack
 This project utilizes several technologies, including:
 
-* **OpenAI API**: A cloud-based platform that allows users to build various artificial intelligence models, including natural language processing models that can generate text.
-* **readline**: A Node.js module that provides an interface for reading input from a user via the command line.
-* **fs**: A Node.js module that provides an interface for working with the file system.
-* **path**: A Node.js module that provides utilities for working with file and directory paths.
+* [**OpenAI API**](https://openai.com/api/): A cloud-based platform that allows users to build various artificial intelligence models, including natural language processing models that can generate text.
+* [**readline**](https://nodejs.org/api/readline.html): A Node.js module that provides an interface for reading input from a user via the command line.
+* [**fs**](https://nodejs.org/api/fs.html): A Node.js module that provides an interface for working with the file system.
+* [**path**](https://nodejs.org/api/path.html): A Node.js module that provides utilities for working with file and directory paths.
 
 In this project, the OpenAI API is used to generate text in response to user input. The readline module is used to read user input from the command line, while the fs module is used to read and write configuration data to a file. The path module is used to construct file paths for the configuration file.
 
