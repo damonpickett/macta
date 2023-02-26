@@ -54,6 +54,8 @@ You should now be prompted to enter a task description. MacTA will generate inst
 3. MacTA will generate a set of instructions based on your task description. The instructions will include a command-line example for the task, as well as any additional details that might be helpful.
 4. If you'd like to perform another task, simply run the `macta` command again and repeat the process.
 
+To see MacTA in action, check out this brief [video tutorial](https://youtu.be/SpQPNKdlkGY).
+
 ## Contributing
 If you encounter a bug while using macta or would like to request a new feature, please submit an issue on the macta GitHub repository. To submit an issue, follow these steps:
 
