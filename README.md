@@ -22,7 +22,7 @@ After installation, upon the user's first attempt run MacTA, MacTA will prompt t
 
 ![MacTA Demo](./assets/macta_demo.gif)
 
-This program is free to use. However, if you would like to <a href="https://www.buymeacoffee.com/damonpickett" target="_blank">buy me a coffee</a>, feel free!
+This program is free to use. However, if you would like to <a href="https://www.buymeacoffee.com/damonpickett" target="_blank">buy me a coffee</a>, you can do so here:
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/damonpickett" target="_blank">
@@ -53,6 +53,8 @@ You should now be prompted to enter a task description. MacTA will generate inst
 2. You will be prompted to enter a description of the task you'd like to perform. For best results, simply answer the question “How do I…?” E.G. `delete a file`.
 3. MacTA will generate a set of instructions based on your task description. The instructions will include a command-line example for the task, as well as any additional details that might be helpful.
 4. If you'd like to perform another task, simply run the `macta` command again and repeat the process.
+
+To see MacTA in action, check out this brief [video tutorial](https://youtu.be/SpQPNKdlkGY).
 
 ## Contributing
 If you encounter a bug while using macta or would like to request a new feature, please submit an issue on the macta GitHub repository. To submit an issue, follow these steps:
