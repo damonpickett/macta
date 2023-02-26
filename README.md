@@ -22,7 +22,7 @@ After installation, upon the user's first attempt run MacTA, MacTA will prompt t
 
 ![MacTA Demo](./assets/macta_demo.gif)
 
-This program is free to use. However, if you would like to <a href="https://www.buymeacoffee.com/damonpickett" target="_blank">buy me a coffee</a>, feel free!
+This program is free to use. However, if you would like to <a href="https://www.buymeacoffee.com/damonpickett" target="_blank">buy me a coffee</a>, you can do so here:
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/damonpickett" target="_blank">
