@@ -9,11 +9,6 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Description
 MacTA is command-line application that utilizes the OpenAI API to generate instructions for performing tasks in the MacOS terminal. The purpose of this application is to generate clear and concise instructions without having to leave the terminal. This can be particularly helpful for individuals who are new to the terminal or unfamiliar with specific terminal commands.
