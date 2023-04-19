@@ -7,9 +7,6 @@ const os = require('os');
 
 const configFilePath = path.join(__dirname, "config.json");
 
-
-
-
 let apiKey;
 
 const rl = readline.createInterface({

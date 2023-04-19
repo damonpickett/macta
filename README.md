@@ -59,7 +59,7 @@ If you encounter a bug while using macta or would like to request a new feature,
 3. Fill out the template with as much detail as possible, including steps to reproduce the bug or a clear description of the new feature you're requesting.
 4. Click the "Submit new issue" button.
 
-Once you've submitted an issue, I will review it and respond as soon as possible.
+Once you've submitted an issue, I will review it and respond ASAP.
 
 ## License
 ISC
