@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { Configuration, OpenAIApi } = require('openai');
+const OpenAI = require('openai');
 const readline = require ('readline');
 const fs = require('fs');
 const path = require("path");
@@ -42,11 +42,10 @@ try {
 
 function apiCall() {
 
-    const configuration = new Configuration({
+    
+    const openai = new OpenAI({
         apiKey: apiKey,
     });
-    
-    const openai = new OpenAIApi(configuration);
     
     const retryLimit = 5;
 
@@ -56,14 +55,14 @@ function apiCall() {
     while (retryCount <= retryLimit) {
         try {
             // openai text completion function
-            const completion = await openai.createCompletion({
-                prompt: `How do I ${task} in MacOS terminal? Please provide instruction with an example.`,
+            const completion = await openai.completions.create({
+                prompt: `How do I ${task} in MacOS terminal? Please provide concise instruction with an example.`,
                 temperature: 0.5,
-                model: "text-davinci-003",
-                max_tokens: 250,
+                model: "gpt-3.5-turbo-instruct",
+                max_tokens: 150,
             });
 
-            completionOutput = completion.data.choices.pop();
+            completionOutput = completion.choices.pop();
 
             const text = completionOutput.text;
 
